@@ -1,0 +1,147 @@
+local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.Parent = game.CoreGui
+local MainFrame = Instance.new("Frame")
+MainFrame.Size = UDim2.new(0, 400, 0, 300)
+MainFrame.Position = UDim2.new(0.5, -200, 0.5, -150)
+MainFrame.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+MainFrame.BorderSizePixel = 0
+MainFrame.Parent = ScreenGui
+local MainFrameCorner = Instance.new("UICorner")
+MainFrameCorner.CornerRadius = UDim.new(0, 10)
+MainFrameCorner.Parent = MainFrame
+local MainFrameShadow = Instance.new("UIStroke")
+MainFrameShadow.Thickness = 2
+MainFrameShadow.Color = Color3.fromRGB(60, 60, 60)
+MainFrameShadow.Parent = MainFrame
+local Title = Instance.new("TextLabel")
+Title.Size = UDim2.new(1, 0, 0, 40)
+Title.Position = UDim2.new(0, 0, 0, 10)
+Title.Text = "Login System"
+Title.Font = Enum.Font.GothamBold
+Title.TextSize = 28
+Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title.BackgroundTransparency = 1
+Title.TextXAlignment = Enum.TextXAlignment.Center
+Title.Parent = MainFrame
+local UsernameBox = Instance.new("TextBox")
+UsernameBox.Size = UDim2.new(0.8, 0, 0, 40)
+UsernameBox.Position = UDim2.new(0.1, 0, 0, 80)
+UsernameBox.PlaceholderText = "Enter Username"
+UsernameBox.Font = Enum.Font.Gotham
+UsernameBox.TextSize = 18
+UsernameBox.ClearTextOnFocus = true
+UsernameBox.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+UsernameBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+UsernameBox.Parent = MainFrame
+local UsernameBoxCorner = Instance.new("UICorner")
+UsernameBoxCorner.CornerRadius = UDim.new(0, 5)
+UsernameBoxCorner.Parent = UsernameBox
+local PasswordBox = Instance.new("TextBox")
+PasswordBox.Size = UDim2.new(0.8, 0, 0, 40)
+PasswordBox.Position = UDim2.new(0.1, 0, 0, 140)
+PasswordBox.PlaceholderText = "Enter Password"
+PasswordBox.Font = Enum.Font.Gotham
+PasswordBox.TextSize = 18
+PasswordBox.ClearTextOnFocus = true
+PasswordBox.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+PasswordBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+PasswordBox.Text = ""
+PasswordBox.Parent = MainFrame
+local PasswordBoxCorner = Instance.new("UICorner")
+PasswordBoxCorner.CornerRadius = UDim.new(0, 5)
+PasswordBoxCorner.Parent = PasswordBox
+local LoginButton = Instance.new("TextButton")
+LoginButton.Size = UDim2.new(0.4, 0, 0, 40)
+LoginButton.Position = UDim2.new(0.1, 0, 0, 200)
+LoginButton.Text = "Login"
+LoginButton.Font = Enum.Font.GothamBold
+LoginButton.TextSize = 20
+LoginButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+LoginButton.BackgroundColor3 = Color3.fromRGB(0, 170, 255)
+LoginButton.Parent = MainFrame
+local LoginButtonCorner = Instance.new("UICorner")
+LoginButtonCorner.CornerRadius = UDim.new(0, 5)
+LoginButtonCorner.Parent = LoginButton
+LoginButton.MouseEnter:Connect(function()
+    LoginButton.BackgroundColor3 = Color3.fromRGB(0, 140, 220)
+end)
+LoginButton.MouseLeave:Connect(function()
+    LoginButton.BackgroundColor3 = Color3.fromRGB(0, 170, 255)
+end)
+local GetKeyButton = Instance.new("TextButton")
+GetKeyButton.Size = UDim2.new(0.4, 0, 0, 40)
+GetKeyButton.Position = UDim2.new(0.5, 0, 0, 200)
+GetKeyButton.Text = "GET KEY"
+GetKeyButton.Font = Enum.Font.GothamBold
+GetKeyButton.TextSize = 20
+GetKeyButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+GetKeyButton.BackgroundColor3 = Color3.fromRGB(255, 170, 0)
+GetKeyButton.Parent = MainFrame
+local GetKeyButtonCorner = Instance.new("UICorner")
+GetKeyButtonCorner.CornerRadius = UDim.new(0, 5)
+GetKeyButtonCorner.Parent = GetKeyButton
+GetKeyButton.MouseEnter:Connect(function()
+    GetKeyButton.BackgroundColor3 = Color3.fromRGB(220, 140, 0)
+end)
+GetKeyButton.MouseLeave:Connect(function()
+    GetKeyButton.BackgroundColor3 = Color3.fromRGB(255, 170, 0)
+end)
+GetKeyButton.MouseButton1Click:Connect(function()
+    local keyLink = "https://direct-link.net/1254319/arsenal-key"
+    setclipboard(keyLink)
+    local CopyLabel = Instance.new("TextLabel")
+    CopyLabel.Size = UDim2.new(0.8, 0, 0, 20)
+    CopyLabel.Position = UDim2.new(0.1, 0, 0, 250)
+    CopyLabel.Text = "Key link copied!"
+    CopyLabel.Font = Enum.Font.GothamBold
+    CopyLabel.TextSize = 14
+    CopyLabel.TextColor3 = Color3.fromRGB(0, 255, 0)
+    CopyLabel.BackgroundTransparency = 1
+    CopyLabel.Parent = MainFrame
+    wait(2)
+    CopyLabel:Destroy()
+end)
+local validUsername = "BOSS"
+local validPassword = "932"
+LoginButton.MouseButton1Click:Connect(function()
+    local inputUsername = UsernameBox.Text
+    local inputPassword = PasswordBox.Text
+    if inputUsername == validUsername and inputPassword == validPassword then
+        UsernameBox.Visible = false
+        PasswordBox.Visible = false
+        LoginButton.Visible = false
+        GetKeyButton.Visible = false
+        Title.Text = "Loading..."
+        local SuccessLabel = Instance.new("TextLabel")
+        SuccessLabel.Size = UDim2.new(1, 0, 0, 50)
+        SuccessLabel.Position = UDim2.new(0, 0, 0.5, -25)
+        SuccessLabel.Text = "Successful!"
+        SuccessLabel.Font = Enum.Font.GothamBold
+        SuccessLabel.TextSize = 20
+        SuccessLabel.TextColor3 = Color3.fromRGB(0, 255, 0)
+        SuccessLabel.BackgroundTransparency = 1
+        SuccessLabel.Parent = MainFrame
+        local TweenService = game:GetService("TweenService")
+        local tweenInfo = TweenInfo.new(2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+        local growTween = TweenService:Create(SuccessLabel, tweenInfo, {TextSize = 40})
+        growTween:Play()
+        wait(2)
+        local fadeTween = TweenService:Create(SuccessLabel, tweenInfo, {TextColor3 = Color3.new(0, 0, 0)})
+        fadeTween:Play()
+        wait(2)
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Nickyangtpe/Vapa-v2/refs/heads/main/Vapav2-Arsenal.lua", true))()
+        ScreenGui:Destroy()
+    else
+        local ErrorLabel = Instance.new("TextLabel")
+        ErrorLabel.Size = UDim2.new(0.8, 0, 0, 20)
+        ErrorLabel.Position = UDim2.new(0.1, 0, 0, 250)
+        ErrorLabel.Text = "Incorrect username or password!"
+        ErrorLabel.Font = Enum.Font.GothamBold
+        ErrorLabel.TextSize = 14
+        ErrorLabel.TextColor3 = Color3.fromRGB(255, 0, 0)
+        ErrorLabel.BackgroundTransparency = 1
+        ErrorLabel.Parent = MainFrame
+        wait(3)
+        ErrorLabel:Destroy()
+    end
+end)
