@@ -23,36 +23,23 @@ Title.TextColor3 = Color3.fromRGB(255, 255, 255)
 Title.BackgroundTransparency = 1
 Title.TextXAlignment = Enum.TextXAlignment.Center
 Title.Parent = MainFrame
-local UsernameBox = Instance.new("TextBox")
-UsernameBox.Size = UDim2.new(0.8, 0, 0, 40)
-UsernameBox.Position = UDim2.new(0.1, 0, 0, 80)
-UsernameBox.PlaceholderText = "Enter Username"
-UsernameBox.Font = Enum.Font.Gotham
-UsernameBox.TextSize = 18
-UsernameBox.ClearTextOnFocus = true
-UsernameBox.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
-UsernameBox.TextColor3 = Color3.fromRGB(255, 255, 255)
-UsernameBox.Parent = MainFrame
-local UsernameBoxCorner = Instance.new("UICorner")
-UsernameBoxCorner.CornerRadius = UDim.new(0, 5)
-UsernameBoxCorner.Parent = UsernameBox
-local PasswordBox = Instance.new("TextBox")
-PasswordBox.Size = UDim2.new(0.8, 0, 0, 40)
-PasswordBox.Position = UDim2.new(0.1, 0, 0, 140)
-PasswordBox.PlaceholderText = "Enter Password"
-PasswordBox.Font = Enum.Font.Gotham
-PasswordBox.TextSize = 18
-PasswordBox.ClearTextOnFocus = true
-PasswordBox.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
-PasswordBox.TextColor3 = Color3.fromRGB(255, 255, 255)
-PasswordBox.Text = ""
-PasswordBox.Parent = MainFrame
-local PasswordBoxCorner = Instance.new("UICorner")
-PasswordBoxCorner.CornerRadius = UDim.new(0, 5)
-PasswordBoxCorner.Parent = PasswordBox
+local KeyBox = Instance.new("TextBox")
+KeyBox.Size = UDim2.new(0.8, 0, 0, 40)
+KeyBox.Position = UDim2.new(0.1, 0, 0, 110)
+KeyBox.PlaceholderText = "Enter Key"
+KeyBox.Font = Enum.Font.Gotham
+KeyBox.TextSize = 18
+KeyBox.ClearTextOnFocus = true
+KeyBox.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+KeyBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+KeyBox.Text = ""
+KeyBox.Parent = MainFrame
+local KeyBoxCorner = Instance.new("UICorner")
+KeyBoxCorner.CornerRadius = UDim.new(0, 5)
+KeyBoxCorner.Parent = KeyBox
 local LoginButton = Instance.new("TextButton")
 LoginButton.Size = UDim2.new(0.4, 0, 0, 40)
-LoginButton.Position = UDim2.new(0.1, 0, 0, 200)
+LoginButton.Position = UDim2.new(0.1, 0, 0, 170)
 LoginButton.Text = "Login"
 LoginButton.Font = Enum.Font.GothamBold
 LoginButton.TextSize = 20
@@ -70,7 +57,7 @@ LoginButton.MouseLeave:Connect(function()
 end)
 local GetKeyButton = Instance.new("TextButton")
 GetKeyButton.Size = UDim2.new(0.4, 0, 0, 40)
-GetKeyButton.Position = UDim2.new(0.5, 0, 0, 200)
+GetKeyButton.Position = UDim2.new(0.5, 0, 0, 170)
 GetKeyButton.Text = "GET KEY"
 GetKeyButton.Font = Enum.Font.GothamBold
 GetKeyButton.TextSize = 20
@@ -101,14 +88,11 @@ GetKeyButton.MouseButton1Click:Connect(function()
     wait(2)
     CopyLabel:Destroy()
 end)
-local validUsername = "BOSS"
-local validPassword = "666"
+local validKey = "650"
 LoginButton.MouseButton1Click:Connect(function()
-    local inputUsername = UsernameBox.Text
-    local inputPassword = PasswordBox.Text
-    if inputUsername == validUsername and inputPassword == validPassword then
-        UsernameBox.Visible = false
-        PasswordBox.Visible = false
+    local inputKey = KeyBox.Text
+    if inputKey == validKey then
+        KeyBox.Visible = false
         LoginButton.Visible = false
         GetKeyButton.Visible = false
         Title.Text = "Loading..."
@@ -135,7 +119,7 @@ LoginButton.MouseButton1Click:Connect(function()
         local ErrorLabel = Instance.new("TextLabel")
         ErrorLabel.Size = UDim2.new(0.8, 0, 0, 20)
         ErrorLabel.Position = UDim2.new(0.1, 0, 0, 250)
-        ErrorLabel.Text = "Incorrect username or password!"
+        ErrorLabel.Text = "Incorrect key!"
         ErrorLabel.Font = Enum.Font.GothamBold
         ErrorLabel.TextSize = 14
         ErrorLabel.TextColor3 = Color3.fromRGB(255, 0, 0)
