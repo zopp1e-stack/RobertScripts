@@ -74,7 +74,7 @@ GetKeyButton.MouseLeave:Connect(function()
     GetKeyButton.BackgroundColor3 = Color3.fromRGB(255, 170, 0)
 end)
 GetKeyButton.MouseButton1Click:Connect(function()
-    local keyLink = "https://link-hub.net/1254319/key"
+    local keyLink = "https://loot-link.com/s?hRtn8jQG"
     setclipboard(keyLink)
     local CopyLabel = Instance.new("TextLabel")
     CopyLabel.Size = UDim2.new(0.8, 0, 0, 20)
